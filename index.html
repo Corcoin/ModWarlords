@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MOD WARLORDS</title>
+  
+  <style>
+     @import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+    h1 {
+      font-family: 'Press Start 2P', cursive;
+    }
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-top: 30px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    input[type="text"] {
+      width: 300px;
+      padding: 10px;
+      margin: 20px auto;
+      display: block;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      background-color: #333;
+      padding: 20px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+    h3 {
+        text-align: center;
+    }
+    h1, h2, h3 {
+  font-family: 'Press Start 2P', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+h1 {
+      color: red;
+    }
+    
+    h2 {
+      color: blue;
+    }
+    
+    h3 {
+      color: green;
+    }
+    h4 {
+        color: yellow;
+        text-align: center;
+    }
+    h5 {
+        color: orange;
+        text-align: center;
+
+    }
+
+  </style>
+</head>
+<body>
+  <h1>MOD WARLORDS</h1>
+  <h3>Minecraft/GTA</h3>
+  <h4>Build and run the mod:
+    Run the Gradle build task to build your mod.
+    Copy the generated JAR file to the mods folder in your Minecraft installation directory.
+    Launch Minecraft with the Forge profile to test your mod.</h4>
+<h5>With GTA use  modding platform for GTA V is Script Hook V </h5>
+
+  <input type="text" id="searchInput" placeholder="Search mods...">
+  
+  <ul id="modList">
+    <li>
+      <h2>Steampunk Machinery Mod</h2>
+      <p>Description: Embrace the industrial revolution in Minecraft with this mod. Build intricate machinery and devices powered by steam and gears. Construct steam engines, automate tasks, and create elaborate contraptions inspired by steampunk aesthetics.</p>
+      <pre>
+package com.example.mod;
+
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+
+@Mod.EventBusSubscriber(modid = "steampunkmachinerymod", bus = Mod.EventBusSubscriber.Bus.MOD)
+public class SteampunkMachineryMod {
+    public static final Block STEAM_ENGINE = new SteamEngineBlock();
+    public static final Item GEAR = new GearItem();
+
+    @SubscribeEvent
+    public static void registerBlocks(RegistryEvent.Register<Block> event) {
+        event.getRegistry().registerAll(
+                STEAM_ENGINE.setRegistryName("steam_engine")
+        );
+    }
+
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> event) {
+        event.getRegistry().registerAll(
+                GEAR.setRegistryName("gear")
+        );
+    }
+
+    public static class SteamEngineBlock extends Block {
+        public SteamEngineBlock() {
+            super(Properties.create(Material.IRON));
+        }
+
+        // Implement block logic for steam engines
+    }
+
+    public static class GearItem extends Item {
+        public GearItem() {
+            super(new Item.Properties().group(ItemGroup.MATERIALS));
+        }
+
+        // Implement item logic for gears
+    }
+}
+
+      </pre>
+    </li>
+    <br>
+    <li>
+      <h2>Time Travel Mod</h2>
+      <p>Description: Venture into the realms of time and space with this mod. Discover ancient time portals and use them to travel to different eras in Minecraft's history. Interact with dinosaurs, explore futuristic cities, or witness the age of pirates.
+</p>
+<br>
+<p>Build and run the mod:
+Run the Gradle build task to build your mod.
+Copy the generated JAR file to the mods folder in your Minecraft installation directory.
+Launch Minecraft with the Forge profile to test your mod.</p>
+      <pre>
+package com.example.mod;
+
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+
+@Mod.EventBusSubscriber(modid = "timetravelmod", bus = Mod.EventBusSubscriber.Bus.MOD)
+public class TimeTravelMod {
+    @SubscribeEvent
+    public static void onPlayerInteract(PlayerInteractEvent.RightClickBlock event) {
+        PlayerEntity player = event.getPlayer();
+        if (player.getHeldItem(Hand.MAIN_HAND).getItem() == YourTimeTravelItem) {
+            // Perform time travel logic based on player interaction
+            // Example actions: teleporting to different eras, spawning dinosaurs, generating futuristic cities
+        }
+    }
+}
+
+      </pre>
+    </li>
+    <li>
+      <h2>Gravity Gauntlet Mod</h2>
+      <p>Description: Harness the power of gravity with this mod. Craft a special gauntlet that allows you to manipulate gravity within the game. Use it to walk on walls, float in the air, or create anti-gravity zones.</p>
+      <p>Create a new class named GravityGauntletMod</p>
+      <pre>
+package com.example.mod;
+
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.event.entity.player.PlayerTickEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.registries.ObjectHolder;
+
+@Mod.EventBusSubscriber(modid = "gravitygauntletmod", bus = Mod.EventBusSubscriber.Bus.MOD)
+public class GravityGauntletMod {
+    @ObjectHolder("gravitygauntletmod:gravity_gauntlet")
+    public static final Item GRAVITY_GAUNTLET = null;
+
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> event) {
+        event.getRegistry().registerAll(
+            new GravityGauntletItem().setRegistryName("gravity_gauntlet")
+        );
+    }
+
+    @SubscribeEvent
+    public static void onPlayerTick(PlayerTickEvent event) {
+        PlayerEntity player = event.player;
+        ItemStack stack = player.getHeldItem(Hand.MAIN_HAND);
+
+        if (stack.getItem() == GRAVITY_GAUNTLET) {
+            // Perform gravity manipulation actions based on player input or other conditions
+            // Example actions: walking on walls, floating in the air, creating anti-gravity zones
+        }
+    }
+
+    @SubscribeEvent
+    public static void onLivingFall(LivingFallEvent event) {
+        if (event.getEntityLiving() instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) event.getEntityLiving();
+            ItemStack stack = player.getHeldItem(Hand.MAIN_HAND);
+
+            if (stack.getItem() == GRAVITY_GAUNTLET) {
+                // Cancel fall damage when using the gravity gauntlet
+                event.setCanceled(true);
+            }
+        }
+    }
+}
+
+        
+      </pre>
+      <p>Create a new class named GravityGauntletItem</p>
+      <pre>
+package com.example.mod;
+
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+
+public class GravityGauntletItem extends Item {
+    public GravityGauntletItem() {
+        super(new Item.Properties().group(ItemGroup.COMBAT));
+        setRegistryName("gravity_gauntlet");
+    }
+}
+
+      </pre>
+      <p>Build and run the mod:
+Run the Gradle build task to build your mod.
+Copy the generated JAR file to the mods folder in your Minecraft installation directory.
+Launch Minecraft with the Forge profile to test your mod</p>
+    </li>
+    <li>
+      <h2>Magical Botany Mod</h2>
+      <p>Description: Dive into the world of magical plants and potions. Cultivate unique plants with mystical properties and use them to brew powerful potions. Create healing elixirs, growth serums, or even transform yourself into different creatures.</p>
+      <pre>
+package com.example.mod;
+
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+
+@Mod.EventBusSubscriber(modid = "magicalbotanymod", bus = Mod.EventBusSubscriber.Bus.MOD)
+public class MagicalBotanyMod {
+    public static final Item MYSTICAL_PLANT = new MysticalPlantItem();
+
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> event) {
+        event.getRegistry().registerAll(
+                MYSTICAL_PLANT.setRegistryName("mystical_plant")
+        );
+    }
+
+    public static class MysticalPlantItem extends Item {
+        public MysticalPlantItem() {
+            super(new Item.Properties().group(ItemGroup.MATERIALS));
+        }
+
+        // Implement item logic for mystical plants
+    }
+}
+
+      </pre>
+    </li>
+    <li>
+      <h2>Elemental Enchantments Mod</h2>
+      <p>Description: Unleash the forces of nature with this mod. Obtain powerful elemental enchantments for your weapons and armor. Harness the power of fire, water, earth, and air to smite your enemies or manipulate the environment.</p>
+      <pre>
+package com.example.mod;
+
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentType;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+
+@Mod.EventBusSubscriber(modid = "elementalenchantmentsmod", bus = Mod.EventBusSubscriber.Bus.MOD)
+public class ElementalEnchantmentsMod {
+    public static final Enchantment FIRE_ENCHANTMENT = new FireEnchantment();
+
+    @SubscribeEvent
+    public static void registerEnchantments(RegistryEvent.Register<Enchantment> event) {
+        event.getRegistry().registerAll(
+                FIRE_ENCHANTMENT.setRegistryName("fire_enchantment")
+        );
+    }
+
+    public static class FireEnchantment extends Enchantment {
+        public FireEnchantment() {
+            super(Rarity.RARE, EnchantmentType.WEAPON, new EquipmentSlotType[]{EquipmentSlotType.MAINHAND});
+        }
+
+        // Implement enchantment logic for fire-based effects
+    }
+}
+
+      </pre>
+    </li>
+    <li>
+      <h2>Space Exploration Mod</h2>
+      <p>Description: Embark on a cosmic journey with this mod. Explore the vastness of space, discover new planets, and encounter alien life forms. Build rockets, space stations, and advanced space vehicles to travel to different celestial bodies.
+
+java
+</p>
+      <pre>
+package com.example.mod;
+
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+
+@Mod.EventBusSubscriber(modid = "spaceexplorationmod", bus = Mod.EventBusSubscriber.Bus.MOD)
+public class SpaceExplorationMod {
+    public static final Item ROCKET = new RocketItem();
+
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> event) {
+        event.getRegistry().registerAll(
+                ROCKET.setRegistryName("rocket")
+        );
+    }
+
+    public static class RocketItem extends Item {
+        public RocketItem() {
+            super(new Item.Properties().group(ItemGroup.TRANSPORTATION));
+        }
+
+        // Implement rocket logic for space travel
+    }
+}
+
+      </pre>
+    </li>
+    <li>
+      <h2>Magical Spells Mod</h2>
+      <p>Description: Immerse yourself in the world of magic and sorcery with this mod. Learn powerful spells, harness mystical energies, and cast enchanting incantations. Discover ancient spell books, create magical artifacts, and unleash your magical prowess</p>
+      <pre>
+package com.example.mod;
+
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+
+@Mod.EventBusSubscriber(modid = "magicalspellmod", bus = Mod.EventBusSubscriber.Bus.MOD)
+public class MagicalSpellsMod {
+    public static final Item SPELL_BOOK = new SpellBookItem();
+
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> event) {
+        event.getRegistry().registerAll(
+                SPELL_BOOK.setRegistryName("spell_book")
+        );
+    }
+
+    public static class SpellBookItem extends Item {
+        public SpellBookItem() {
+            super(new Item.Properties().group(ItemGroup.MISC));
+        }
+
+        // Implement spell book logic for learning and casting spells
+    }
+}
+
+      </pre>
+    </li>
+     <li>
+      <h2>Infinity Gauntlet Mod</h2>
+      <p>powers of the Infinity Gauntlet</p>
+      <pre>
+        package com.example.mod;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+
+@Mod.EventBusSubscriber(modid = "infinitygauntletmod", bus = Mod.EventBusSubscriber.Bus.MOD)
+public class InfinityGauntletMod {
+    public static final Item INFINITY_GAUNTLET = new InfinityGauntletItem();
+
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> event) {
+        event.getRegistry().registerAll(
+                INFINITY_GAUNTLET.setRegistryName("infinity_gauntlet")
+        );
+    }
+
+    @SubscribeEvent
+    public static void onPlayerInteract(PlayerInteractEvent.RightClickItem event) {
+        PlayerEntity player = event.getPlayer();
+        ItemStack stack = player.getHeldItem(Hand.MAIN_HAND);
+        if (stack.getItem() == INFINITY_GAUNTLET) {
+            World world = player.getEntityWorld();
+            
+            // 1. Reality Manipulation
+            // TODO: Implement reality manipulation logic
+            
+            // 2. Time Manipulation
+            // TODO: Implement time manipulation logic
+            
+            // 3. Space Manipulation
+            // TODO: Implement space manipulation logic
+            
+            // 4. Mind Control
+            // TODO: Implement mind control logic
+            
+            // 5. Soul Manipulation
+            // TODO: Implement soul manipulation logic
+            
+            // 6. Power Beam
+            // TODO: Implement power beam logic
+            
+            // 7. Snap of Fate
+            // TODO: Implement snap of fate logic
+            
+            // 8. Universal Control
+            // TODO: Implement universal control logic
+        }
+    }
+
+    public static class InfinityGauntletItem extends Item {
+        public InfinityGauntletItem() {
+            super(new Item.Properties());
+        }
+    }
+}
+
+      </pre>
+    </li>
+    <li>
+      <h2>GTA:Money Rain Mod</h2>
+      <p>Description: Makes money rain from the sky, granting the player a financial boost.</p>
+      <pre>
+        using GTA;
+using GTA.Math;
+
+public class MoneyRainMod : Script
+{
+    public MoneyRainMod()
+    {
+        // Event handler for when the script starts
+        Tick += OnTick;
+        KeyDown += OnKeyDown;
+    }
+
+    private void OnTick(object sender, System.EventArgs e)
+    {
+        // Perform any update logic here
+    }
+
+    private void OnKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.F5)
+        {
+            // Spawn money raining from the sky
+            for (int i = 0; i < 100; i++)
+            {
+                Vector3 randomPosition = Game.Player.Character.Position + new Vector3(RandomHelper.GetRandomFloat(-10, 10), RandomHelper.GetRandomFloat(-10, 10), RandomHelper.GetRandomFloat(20, 30));
+                Function.Call(Hash.CREATE_AMBIENT_PICKUP, (int)PickupType.MoneyCase, randomPosition.X, randomPosition.Y, randomPosition.Z, 0, 5000);
+            }
+        }
+    }
+}
+
+
+      </pre>
+    </li>
+    <li>
+      <h2>GTA:Teleportation Mod</h2>
+      <p>Description: Allows the player to teleport to predefined locations on the map</p>
+      <pre>
+using GTA;
+using GTA.Math;
+
+public class TeleportationMod : Script
+{
+    public TeleportationMod()
+    {
+        // Event handler for when the script starts
+        Tick += OnTick;
+    }
+
+    private void OnTick(object sender, System.EventArgs e)
+    {
+        if (Game.IsKeyPressed(Keys.F5))
+        {
+            // Teleport the player to a predefined location
+            Game.Player.Character.Position = new Vector3(100, 200, 10); // Replace with your desired coordinates
+        }
+    }
+}
+
+
+      </pre>
+    </li>
+    <li>
+      <h2>GTA:Rampage Mode Mod</h2>
+      <p>Description: Activates a rampage mode, granting the player enhanced abilities and invincibility.</p>
+      <pre>
+        using GTA;
+
+public class RampageModeMod : Script
+{
+    public RampageModeMod()
+    {
+        // Event handler for when the script starts
+        Tick += OnTick;
+        KeyDown += OnKeyDown;
+    }
+
+    private void OnTick(object sender, System.EventArgs e)
+    {
+        // Perform any update logic here
+    }
+
+    private void OnKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.F5)
+        {
+            // Activate rampage mode: enable invincibility and increase player's stats
+            Game.Player.Character.IsInvincible = true;
+            Game.Player.Character.Health = Game.Player.Character.MaxHealth;
+            Game.Player.Character.Armor = Game.Player.Character.MaxArmor;
+            Game.Player.Character.Weapons.Give(WeaponHash.Minigun, 999, true, true);
+        }
+    }
+}
+
+
+      </pre>
+    </li>
+    <li>
+      <h2>GTA:Vehicle Spawner Mod</h2>
+      <p>Description: Allows the player to spawn vehicles on demand</p>
+      <pre>
+using GTA;
+using GTA.Math;
+using GTA.Native;
+
+public class VehicleSpawnerMod : Script
+{
+    public VehicleSpawnerMod()
+    {
+        // Event handler for when the script starts
+        Tick += OnTick;
+    }
+
+    private void OnTick(object sender, System.EventArgs e)
+    {
+        if (Game.IsKeyPressed(Keys.F5))
+        {
+            // Spawn a vehicle at the player's position
+            Vehicle vehicle = World.CreateVehicle(VehicleHash.Comet2, Game.Player.Character.Position);
+            vehicle.PlaceOnGround();
+        }
+    }
+}
+
+
+      </pre>
+    </li>
+    <li>
+      <h2>GTA:Gravity Gun Mod</h2>
+      <p>Description: Gives the player a gravity gun to manipulate objects in the game world</p>
+      <pre>
+using GTA;
+using GTA.Math;
+using GTA.Native;
+
+public class GravityGunMod : Script
+{
+    private WeaponHash gravityGunHash = WeaponHash.PetrolCan; // Replace with your desired weapon hash
+
+    public GravityGunMod()
+    {
+        // Event handler for when the script starts
+        Tick += OnTick;
+    }
+
+    private void OnTick(object sender, System.EventArgs e)
+    {
+        if (Game.IsKeyPressed(Keys.F5))
+        {
+            // Get the closest object to the player's position
+            Entity closestObject = World.GetClosestEntity(Game.Player.Character.Position, 10f);
+            
+            // Attach the object to the player's hand using the gravity gun
+            Function.Call(Hash.SET_PED_CAN_SWITCH_WEAPON, Game.Player.Character.Handle, false);
+            Function.Call(Hash.TASK_GO_TO_ENTITY, Game.Player.Character.Handle, closestObject.Handle, -1, 0.5f, 2f, 2f, 0);
+        }
+    }
+}
+
+
+      </pre>
+    </li>
+    <li>
+      <h2>GTA:Super Speed Mod</h2>
+      <p>Description: Grants the player super speed, allowing them to move at incredible velocities.</p>
+      <pre>
+using GTA;
+using GTA.Math;
+
+public class SuperSpeedMod : Script
+{
+    public SuperSpeedMod()
+    {
+        // Event handler for when the script starts
+        Tick += OnTick;
+    }
+
+    private void OnTick(object sender, System.EventArgs e)
+    {
+        Game.Player.Character.Velocity += new Vector3(0, 0, 10); // Adjust the velocity values as desired
+    }
+}
+
+
+      </pre>
+    </li>
+    <!-- Add more mod list items as needed -->
+  </ul>
+
+  <script>
+    // Function to filter mods based on search input
+    function searchMods() {
+      var searchInput = document.getElementById("searchInput");
+      var searchTerm = searchInput.value.toLowerCase();
+
+      var modList = document.getElementById("modList");
+      var modItems = modList.getElementsByTagName("li");
+
+      for (var i = 0; i < modItems.length; i++) {
+        var modName = modItems[i].getElementsByTagName("h2")[0].textContent.toLowerCase();
+        if (modName.includes(searchTerm)) {
+          modItems[i].style.display = "list-item";
+        } else {
+          modItems[i].style.display = "none";
+        }
+      }
+    }
+
+    // Event listener for search input
+    document.getElementById("searchInput").addEventListener("input", searchMods);
+  </script>
+</body>
+</html>
+
+      
