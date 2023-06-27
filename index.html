@@ -57,12 +57,12 @@
         text-align: center;
     }
     h1, h2, h3 {
-  font-family: 'Press Start 2P', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: bold;
-}
-h1 {
+      font-family: 'Press Start 2P', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+    h1 {
       color: red;
     }
     
@@ -82,8 +82,46 @@ h1 {
         text-align: center;
 
     }
+    .form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 5px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
 
-  </style>
+  /* Styling for form elements */
+  .form-container input[type="text"],
+  .form-container input[type="email"],
+  .form-container textarea {
+    width: 100%;
+    padding: 2px;
+    margin-bottom: 15px;
+    background-color: #444;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+  }
+
+  /* Styling for submit button */
+  .form-container input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .form-container input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  /* Styling for textarea */
+  .form-container textarea {
+    height: 120px;
+    resize: none;
+  }
+</style>
 </head>
 <body>
   <h1>MOD WARLORDS</h1>
@@ -93,6 +131,14 @@ h1 {
     Copy the generated JAR file to the mods folder in your Minecraft installation directory.
     Launch Minecraft with the Forge profile to test your mod.</h4>
 <h5>With GTA use  modding platform for GTA V is Script Hook V </h5>
+  <h4> Feel free to reach out to Mod Warlords by email at modswarlords@gmail.com, and we will script any Mod you want for just a dollar. and we will help with any debugging too at not cost as long as it under a 5 minutes, "[Every Friday will be Dropping a new Mod for Minecraft and GTA]"</h4>
+  <div class="form-container">
+    <form id="comment-form" action="https://formspree.io/f/mknlwzjj" method="POST">
+      <textarea name="comment" placeholder="Enter your comment here"></textarea>
+      <input type="email" name="_replyto" placeholder="Your email" required>
+      <input type="submit" value="Submit Comment">
+    </form>
+  </div>
 
   <input type="text" id="searchInput" placeholder="Search mods...">
   
